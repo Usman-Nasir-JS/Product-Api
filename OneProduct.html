@@ -12,82 +12,14 @@
     <div id="OneProducts">
 
     </div>
- 
-    <script>
-        
-        console.log("Single Prodoct Api");
 
-        let products = document.querySelector("#OneProducts")
-
-        let newProducts = localStorage.getItem("id")
-
-        console.log(newProducts);
-
-        fetch(`https://dummyjson.com/products/${newProducts}`)
-
-        .then(res => res.json() )
-
-        .then(newData => {
-            console.log(newData);
-            
-            products.innerHTML += `
-            
-            <div class="result-card">
-
-            <div class="p-right">
-            <img src="${newData.thumbnail}" width="100%">    
-            </div>
-            <div>
-            <h1 id="b-bottom">Product : ${newData.title}</h1>
-            <h2>Category : ${newData.category}</h2>
-            <h4>Stocks : ${newData.stock}</h4>
-            <h4>Weight : ${newData.weight}</h4>
-            <p>${newData.description}</p>
-            <h2 class="bg-red">${newData.warrantyInformation}</h2>
-            <h3 class="bg-green">Price : $${newData.price}</h3>
-            
-            <button class="order-btn" onclick="order()">Order Now</button>
-    
-            </div>
-            </div>
-            `
-        })
-
-        .catch(error => {
-            console.log(error);
-            
-        })
-
-        function order() {
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be order this item ?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, order now !"
-        }).then((result) => {
-           if (result.isConfirmed) {
-             Swal.fire({
-               title: "Thanks For Shopping!",
-               text: "Successfully you Ordered your item.",
-               icon: "success"
-            });
-           }
-        });
-    
-        }
-
-        
-    </script>
- 
     <div class="anchor">        
-     <a href="./index.html">Go Back Home Page...</a>
-     </div>
+        <a href="./index.html">Go Back Home Page</a>
+    </div>
 
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script src="./oneProduct.js"></script>
 </body>
 </html>
